@@ -1,6 +1,6 @@
 # Docker-UPX
 
-Use UPX in Docker multi-stage builds
+It's a lightweight Docker image of UPX to use in multi-stage builds.
 
 ## Usage
 
@@ -8,9 +8,9 @@ Use UPX in Docker multi-stage builds
 docker run --rm -w $PWD -v $PWD:$PWD hatamiarash7/upx --best --lzma -o application-compressed ./application
 ```
 
-### Dockerfile
+## Dockerfile
 
-You can use this image in your Dockerfile like this:
+You can use this image in your Dockerfile for multi-stage builds like this:
 
 ```dockerfile
 ##################################### Build #####################################
