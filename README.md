@@ -64,7 +64,7 @@ Don't be shy and reach out to us if you want to contribute 😉
 
 Each project may have many problems. Contributing to the better development of this project by reporting them. 👍
 
-[release_badge]: https://github.com/hatamiarash7/Docker-UPX/actions/workflows/release.yaml/badge.svg
+[release_badge]: https://github.com/hatamiarash7/Docker-UPX/actions/workflows/release.yml/badge.svg
 [release_link]: https://github.com/hatamiarash7/Docker-UPX/actions/workflows/release.yaml
 [link_license]: https://github.com/hatamiarash7/Docker-UPX/blob/master/LICENSE
 [badge_license]: https://img.shields.io/github/license/hatamiarash7/Docker-UPX.svg?longCache=true
