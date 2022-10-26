@@ -1,0 +1,33 @@
+############################## Get UPX ##############################
+
+FROM alpine:latest as curl
+
+RUN apk add --no-cache curl
+
+RUN curl -sSL $(curl -s https://api.github.com/repos/upx/upx/releases/latest \
+    | grep browser_download_url | grep amd64 | cut -d '"' -f 4) -o /upx.tar.xz
+
+############################## Prepare UPX ##############################
+
+FROM busybox:latest as extractor
+
+LABEL \
+    org.opencontainers.image.title="UPX" \
+    org.opencontainers.image.description="Use UPX in Docker multi-stage builds" \
+    org.opencontainers.image.url="https://github.com/hatamiarash7/docker-upx" \
+    org.opencontainers.image.source="https://github.com/hatamiarash7/docker-upx" \
+    org.opencontainers.image.vendor="hatamiarash7" \
+    org.opencontainers.image.author="hatamiarash7" \
+    org.opencontainers.version="$APP_VERSION" \
+    org.opencontainers.image.created="$DATE_CREATED" \
+    org.opencontainers.image.licenses="MIT"
+
+WORKDIR /
+
+COPY --from=curl /upx.tar.xz /
+
+RUN tar -xf upx.tar.xz \
+    && cd upx-*-amd64_linux \
+    && mv upx /bin/upx
+
+ENTRYPOINT ["/bin/upx"]
