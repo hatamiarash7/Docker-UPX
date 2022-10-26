@@ -17,13 +17,13 @@ docker run --rm -w $PWD -v $PWD:$PWD hatamiarash7/upx --best --lzma -o applicati
 You can use this image in your Dockerfile for **multi-stage builds** like this:
 
 ```dockerfile
-##################################### Build #####################################
+# Build
 
 FROM golang:1.19-alpine as builder
 
 <build>
 
-##################################### Compression #####################################
+# Compression
 
 FROM hatamiarash7/upx:latest as upx
 
@@ -31,7 +31,7 @@ COPY --from=builder /src /
 
 RUN upx --best --lzma -o /app /app-uncompressed
 
-######################################## Final ########################################
+# Final
 
 FROM scratch
 
