@@ -1,6 +1,10 @@
 # Docker-UPX
 
-It's a lightweight Docker image of UPX to use in multi-stage builds.
+[![Release][release_badge]][release_link]
+[![License][badge_license]][link_license]
+[![Image size][badge_size_latest]][link_docker_hub]
+
+It's a lightweight Docker image of [UPX](https://upx.github.io/) to use in multi-stage builds.
 
 ## Usage
 
@@ -10,7 +14,7 @@ docker run --rm -w $PWD -v $PWD:$PWD hatamiarash7/upx --best --lzma -o applicati
 
 ## Dockerfile
 
-You can use this image in your Dockerfile for multi-stage builds like this:
+You can use this image in your Dockerfile for **multi-stage builds** like this:
 
 ```dockerfile
 ##################################### Build #####################################
@@ -59,3 +63,10 @@ Don't be shy and reach out to us if you want to contribute 😉
 ## Issues
 
 Each project may have many problems. Contributing to the better development of this project by reporting them. 👍
+
+[release_badge]: https://github.com/hatamiarash7/Go-Chat/actions/workflows/release.yaml/badge.svg
+[release_link]: https://github.com/hatamiarash7/Go-Chat/actions/workflows/release.yaml
+[link_license]: https://github.com/hatamiarash7/go-chat/blob/master/LICENSE
+[badge_license]: https://img.shields.io/github/license/hatamiarash7/go-chat.svg?longCache=true
+[badge_size_latest]: https://img.shields.io/docker/image-size/hatamiarash7/go-chat-server/latest?maxAge=30
+[link_docker_hub]: https://hub.docker.com/r/hatamiarash7/go-chat-server/
