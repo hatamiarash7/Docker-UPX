@@ -68,5 +68,5 @@ Each project may have many problems. Contributing to the better development of t
 [release_link]: https://github.com/hatamiarash7/Docker-UPX/actions/workflows/release.yaml
 [link_license]: https://github.com/hatamiarash7/Docker-UPX/blob/master/LICENSE
 [badge_license]: https://img.shields.io/github/license/hatamiarash7/Docker-UPX.svg?longCache=true
-[badge_size_latest]: https://img.shields.io/docker/image-size/hatamiarash7/Docker-UPX-server/latest?maxAge=30
-[link_docker_hub]: https://hub.docker.com/r/hatamiarash7/Docker-UPX-server/
+[badge_size_latest]: https://img.shields.io/docker/image-size/hatamiarash7/upx/latest?maxAge=30
+[link_docker_hub]: https://hub.docker.com/r/hatamiarash7/upx/
