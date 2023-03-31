@@ -11,16 +11,15 @@ RUN curl -sSL $(curl -s https://api.github.com/repos/upx/upx/releases/latest \
 
 FROM busybox:latest as extractor
 
-LABEL \
-    org.opencontainers.image.title="UPX" \
-    org.opencontainers.image.description="Use UPX in Docker multi-stage builds" \
-    org.opencontainers.image.url="https://github.com/hatamiarash7/docker-upx" \
-    org.opencontainers.image.source="https://github.com/hatamiarash7/docker-upx" \
-    org.opencontainers.image.vendor="hatamiarash7" \
-    org.opencontainers.image.author="hatamiarash7" \
-    org.opencontainers.version="$APP_VERSION" \
-    org.opencontainers.image.created="$DATE_CREATED" \
-    org.opencontainers.image.licenses="MIT"
+LABEL org.opencontainers.image.title="UPX"
+LABEL org.opencontainers.image.description="Use UPX in Docker multi-stage builds"
+LABEL org.opencontainers.image.url="https://github.com/hatamiarash7/docker-upx"
+LABEL org.opencontainers.image.source="https://github.com/hatamiarash7/docker-upx"
+LABEL org.opencontainers.image.vendor="hatamiarash7"
+LABEL org.opencontainers.image.author="hatamiarash7"
+LABEL org.opencontainers.version="$APP_VERSION"
+LABEL org.opencontainers.image.created="$DATE_CREATED"
+LABEL org.opencontainers.image.licenses="MIT"
 
 WORKDIR /
 
