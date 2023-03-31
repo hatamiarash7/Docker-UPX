@@ -64,6 +64,7 @@ jobs:
             hatamiarash7/upx:latest
             ghcr.io/${{ github.actor }}/upx:${{ steps.slug.outputs.version }}
             ghcr.io/${{ github.actor }}/upx:latest
+          outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=Use UPX in Docker multi-stage builds
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
