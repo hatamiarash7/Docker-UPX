@@ -1,6 +1,6 @@
 ############################## Get UPX ##############################
 
-FROM alpine:latest as curl
+FROM alpine:3.23.3 AS curl
 
 RUN apk add --no-cache curl
 
@@ -9,7 +9,7 @@ RUN curl -sSL $(curl -s https://api.github.com/repos/upx/upx/releases/latest \
 
 ############################## Prepare UPX ##############################
 
-FROM busybox:latest as extractor
+FROM busybox:1.37
 
 LABEL org.opencontainers.image.title="UPX"
 LABEL org.opencontainers.image.description="Use UPX in Docker multi-stage builds"
