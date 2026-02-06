@@ -145,7 +145,7 @@ Typical compression ratios for statically linked binaries:
 | Rust     | ~5 MB    | ~1-2 MB    | 60-80% |
 | C/C++    | ~1 MB    | ~300 KB    | 70-80% |
 
-> [!NOTE] Note
+> [!NOTE]
 > Results vary based on the binary size, content, and compression options used.
 
 ## Important Notes
