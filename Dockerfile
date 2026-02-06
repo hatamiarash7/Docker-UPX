@@ -2,7 +2,7 @@
 
 ############################## Build Arguments ##############################
 
-ARG ALPINE_VERSION=3.21
+ARG ALPINE_VERSION=3.23
 ARG BUSYBOX_VERSION=1.37
 ARG UPX_VERSION=latest
 ARG APP_VERSION=unknown
