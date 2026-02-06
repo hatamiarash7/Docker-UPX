@@ -23,7 +23,8 @@ jobs:
     name: 🐳 Build & Push
     runs-on: ubuntu-24.04
     permissions:
-      contents: read
+      actions: read
+      contents: write
       packages: write
       security-events: write
       id-token: write
@@ -98,7 +99,7 @@ jobs:
         with:
           name: sbom
           path: sbom.spdx.json
-          retention-days: 30
+          retention-days: 7
 
   security-scan:
     name: 🔒 Security Scan
