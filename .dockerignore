@@ -1,4 +1,21 @@
-.github/
-.git
-.gitattributes
+# Git
+.git*
+
+# Docker
 .dockerignore
+docker-compose*.yml
+
+# Documentation
+README.md
+LICENSE
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
