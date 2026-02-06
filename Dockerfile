@@ -18,8 +18,9 @@ ARG TARGETVARIANT
 
 RUN apk add --no-cache curl jq
 
-# Map Docker platform to UPX architecture naming
-RUN case "${TARGETARCH}${TARGETVARIANT}" in \
+# Map Docker platform to UPX architecture naming and download
+RUN set -ex && \
+    case "${TARGETARCH}${TARGETVARIANT}" in \
     "amd64")    UPX_ARCH="amd64" ;; \
     "arm64")    UPX_ARCH="arm64" ;; \
     "armv7")    UPX_ARCH="arm" ;; \
@@ -27,12 +28,20 @@ RUN case "${TARGETARCH}${TARGETVARIANT}" in \
     "386")      UPX_ARCH="i386" ;; \
     *)          echo "Unsupported architecture: ${TARGETARCH}${TARGETVARIANT}" && exit 1 ;; \
     esac && \
+    echo "Target architecture: ${UPX_ARCH}" && \
     if [ "${UPX_VERSION}" = "latest" ]; then \
-    DOWNLOAD_URL=$(curl -fsSL https://api.github.com/repos/upx/upx/releases/latest | \
-    jq -r ".assets[] | select(.name | contains(\"${UPX_ARCH}_linux\")) | .browser_download_url"); \
-    else \
-    DOWNLOAD_URL="https://github.com/upx/upx/releases/download/v${UPX_VERSION}/upx-${UPX_VERSION}-${UPX_ARCH}_linux.tar.xz"; \
+    # Get latest version tag from GitHub API
+    LATEST_TAG=$(curl -fsSL https://api.github.com/repos/upx/upx/releases/latest 2>/dev/null | jq -r '.tag_name' || echo "") && \
+    if [ -z "${LATEST_TAG}" ] || [ "${LATEST_TAG}" = "null" ]; then \
+    # Fallback: scrape releases page if API fails (rate limiting)
+    LATEST_TAG=$(curl -fsSL "https://github.com/upx/upx/releases/latest" -o /dev/null -w '%{url_effective}' | grep -oE 'v[0-9]+\.[0-9]+\.[0-9]+' | head -1) ; \
     fi && \
+    VERSION=$(echo "${LATEST_TAG}" | sed 's/^v//') && \
+    echo "Latest UPX version: ${VERSION}" ; \
+    else \
+    VERSION="${UPX_VERSION}" ; \
+    fi && \
+    DOWNLOAD_URL="https://github.com/upx/upx/releases/download/v${VERSION}/upx-${VERSION}-${UPX_ARCH}_linux.tar.xz" && \
     echo "Downloading UPX from: ${DOWNLOAD_URL}" && \
     curl -fsSL "${DOWNLOAD_URL}" -o /upx.tar.xz
 
