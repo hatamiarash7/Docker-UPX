@@ -8,7 +8,7 @@
 
 A lightweight, multi-architecture Docker image of [UPX](https://upx.github.io/) (Ultimate Packer for eXecutables) designed for compressing binaries in multi-stage Docker builds.
 
-- **Ultra-lightweight** - Based on BusyBox (~5MB total)
+- **Ultra-lightweight** - Based on BusyBox (~4MB total)
 - **Multi-architecture support** - `linux/amd64`, `linux/arm64`, `linux/arm/v7`, `linux/arm/v6`, `linux/386`
 
 ## Supported Architectures
@@ -145,7 +145,8 @@ Typical compression ratios for statically linked binaries:
 | Rust     | ~5 MB    | ~1-2 MB    | 60-80% |
 | C/C++    | ~1 MB    | ~300 KB    | 70-80% |
 
-> **Note**: Results vary based on the binary size, content, and compression options used.
+> [!NOTE] Note
+> Results vary based on the binary size, content, and compression options used.
 
 ## Important Notes
 
@@ -176,7 +177,7 @@ docker build \
 
 ## 💛 Support
 
-[![Donate with Bitcoin](https://en.cryptobadges.io/badge/micro/bc1qmmh6vt366yzjt3grjxjjqynrrxs3frun8gnxrz)](https://en.cryptobadges.io/donate/bc1qmmh6vt366yzjt3grjxjjqynrrxs3frun8gnxrz) [![Donate with Ethereum](https://en.cryptobadges.io/badge/micro/0x0831bD72Ea8904B38Be9D6185Da2f930d6078094)](https://en.cryptobadges.io/donate/0x0831bD72Ea8904B38Be9D6185Da2f930d6078094)
+[![Donate with Bitcoin](https://img.shields.io/badge/Bitcoin-bc1qmmh6vt366yzjt3grjxjjqynrrxs3frun8gnxrz-orange)](https://donatebadges.ir/donate/Bitcoin/bc1qmmh6vt366yzjt3grjxjjqynrrxs3frun8gnxrz) [![Donate with Ethereum](https://img.shields.io/badge/Ethereum-0x0831bD72Ea8904B38Be9D6185Da2f930d6078094-blueviolet)](https://donatebadges.ir/donate/Ethereum/0x0831bD72Ea8904B38Be9D6185Da2f930d6078094)
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/D1D1WGU9)
 
@@ -195,10 +196,6 @@ Contributions are welcome! Here's how you can help:
 ## 📝 Issues
 
 Found a bug or have a suggestion? [Open an issue](https://github.com/hatamiarash7/Docker-UPX/issues/new) - contributions to improve this project are always welcome! 👍
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 [release_badge]: https://github.com/hatamiarash7/Docker-UPX/actions/workflows/release.yml/badge.svg
 [release_link]: https://github.com/hatamiarash7/Docker-UPX/actions/workflows/release.yml
